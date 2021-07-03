@@ -1,9 +1,9 @@
+import { TRANSACTION } from './../types/transaction.interface';
 import { Router } from '@angular/router';
 import { UserService } from './user.service';
 import { HttpClient } from '@angular/common/http';
 import { ACCOUNT } from './../types/account.interface';
 import { Injectable } from '@angular/core';
-import { TRANSACTION } from '../types/transaction.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -64,5 +64,19 @@ export class SwiftService {
         },
         err => { console.log(err) }
       )
+  }
+
+  //create transaction
+  createTransaction( type:string, fromId:string, toId:string, amount:number, note:string ){
+    this.http.post<TRANSACTION>(`${this.baseUrl}`,{ type, fromId, toId, amount, note },this.setheaders())
+    .subscribe(
+      data =>{
+        console.log(data),
+        this._transactions.push(data),
+        this.router.navigateByUrl('/')
+      
+      },
+      err =>{console.log(err)}
+    )
   }
 }

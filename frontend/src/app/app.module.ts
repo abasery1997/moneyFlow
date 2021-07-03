@@ -14,6 +14,9 @@ import { AccountsListComponent } from './components/swift/accounts-list/accounts
 import { AccountsListItemComponent } from './components/swift/accounts-list-item/accounts-list-item.component';
 import { TransactionsListComponent } from './components/swift/transactions-list/transactions-list.component';
 import { TransactionsListItemComponent } from './components/swift/transactions-list-item/transactions-list-item.component';
+import { OperationsBarComponent } from './components/bars/operations-bar/operations-bar.component';
+import { AccountsCreationComponent } from './components/swift/accounts-creation/accounts-creation.component';
+import { TransactionsCreationComponent } from './components/swift/transactions-creation/transactions-creation.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,9 @@ import { TransactionsListItemComponent } from './components/swift/transactions-l
     AccountsListItemComponent,
     TransactionsListComponent,
     TransactionsListItemComponent,
+    OperationsBarComponent,
+    AccountsCreationComponent,
+    TransactionsCreationComponent,
   ],
   imports: [
     BrowserModule,

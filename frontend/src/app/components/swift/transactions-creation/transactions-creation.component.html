@@ -1,0 +1,34 @@
+<section>
+    <h2>Create A New Transaction</h2>
+    <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <select class="form-select" [(ngModel)]="typeSelect" (change)="selectChange()">
+            <option value="">---</option>
+            <option *ngFor="let type of types" value="{{type}}">{{type}} </option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="amount" class="form-label">Amount</label>
+        <input type="text" class="form-control" id="amount" [(ngModel)]="amount">
+    </div>
+    <div class="mb-3" *ngIf="fromFlag">
+        <label for="fromAcc" class="form-label">From Account</label>
+        <select class="form-select" [(ngModel)]="fromSelect">
+            <option>---</option>
+            <option *ngFor="let account of accounts"> {{account.name}}  {{account._id}}</option>
+        </select>
+    </div>
+    <div class="mb-3" *ngIf="toFlag">
+        <label for="toAcc" class="form-label">To Account</label>
+        <select class="form-select" [(ngModel)]="toSelect">
+            <option>---</option>
+            <option *ngFor="let account of accounts">NAME: {{account.name}} ,ID: {{account._id}}</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="note" class="form-label">Note</label>
+        <input type="text" class="form-control" id="note" [(ngModel)]="note">
+    </div>
+    <button type="submit" class="btn btn-success" (click)="createTransaction()">Create</button>
+</section>
